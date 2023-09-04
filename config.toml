@@ -1,0 +1,4 @@
+baseURL ='https://noorahsmith.github.io/'
+languageCode = 'en-us'
+title = '404 WIP'
+theme = 'hugo.386'
