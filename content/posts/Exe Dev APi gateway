@@ -1,0 +1,30 @@
+---
+title: "While workign with Code "
+date: 2026-26-03T17:11:55+05:00
+description: "LLM Gateway Blast Radius "
+tags: [Why]
+categories: [Code]
+
+
+Summary of the Issue:
+The exe.dev LLM gateway at http://169.254.169.254/gateway/llm/ functions as an unauthenticated, unrestricted API key injection proxy. Any process running on the VM—whether through OpenClaw's agent, a rogue HTTP server, a compromised dependency, or an attacker with SSH access—can make unlimited Anthropic (and OpenAI) API calls at your expense, all without ever possessing or viewing the actual API key.
+Key Findings:
+Zero Authentication: The proxy endpoint requires no authentication headers or tokens.
+Unrestricted Access: Both Anthropic and OpenAI endpoints are live, granting access to all Claude models, including Opus 4.
+No Rate Limiting: There are no observable rate limits on the proxy itself.
+Direct Exploitation Path: OpenClaw's unrestricted shell execution capability creates a direct path from prompt injection to unauthorized billing.
+Network Exposure: The VM has no firewall rules applied (iptables policy: ACCEPT all).
+Financial Impact:
+The potential financial exposure is significant due to the high cost of frontier models and the absence of any access controls:
+
+
+A simple loop running Opus 4 requests at max tokens could burn through thousands of dollars per hour. With parallel requests from a simple Go server, the rate multiplies linearly, potentially leading to catastrophic financial damage within minutes of exploitation.
+
+Given the High Severity of this issue, specifically regarding the potential for significant financial impact through unauthorized API consumption, I recommend the following immediate actions:
+Implement strict authentication for the /gateway/llm/ endpoint.
+Enforce rate limiting and IP-based access controls on the proxy.
+Restrict outbound traffic from the VM via firewall rules to allow only necessary connections.
+
+
+
+
