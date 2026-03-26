@@ -26,5 +26,7 @@ Enforce rate limiting and IP-based access controls on the proxy.
 Restrict outbound traffic from the VM via firewall rules to allow only necessary connections.
 
 
+Complete report https://github.com/NoorahSmith/noorahsmith.github.io/blob/b39e35bd40c6a4b33b3228513dc2177384362418/content/posts/responsible%20disclosure%20LLM%20key%20usage.pdf
+
 
 
