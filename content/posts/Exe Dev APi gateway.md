@@ -1,6 +1,6 @@
 ---
 title: "While workign with Code "
-date: 2026-26-03T17:11:55+05:00
+date: 2026-26-03 T17:11:55+05:00
 description: "LLM Gateway Blast Radius "
 tags: [Why]
 categories: [Code]
@@ -19,6 +19,8 @@ The potential financial exposure is significant due to the high cost of frontier
 
 
 A simple loop running Opus 4 requests at max tokens could burn through thousands of dollars per hour. With parallel requests from a simple Go server, the rate multiplies linearly, potentially leading to catastrophic financial damage within minutes of exploitation.
+<img width="822" height="292" alt="viola" src="https://github.com/user-attachments/assets/47699667-d435-4517-a110-81df235f6ca2" />
+
 
 Given the High Severity of this issue, specifically regarding the potential for significant financial impact through unauthorized API consumption, I recommend the following immediate actions:
 Implement strict authentication for the /gateway/llm/ endpoint.
