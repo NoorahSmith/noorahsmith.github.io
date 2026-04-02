@@ -4,7 +4,7 @@ date: 2026-26-03T17:11:55+05:00
 description: "LLM Gateway Blast Radius "
 tags: [Why]
 categories: [Code]
-
+---
 
 Summary of the Issue:
 The exe.dev LLM gateway at http://169.254.169.254/gateway/llm/ functions as an unauthenticated, unrestricted API key injection proxy. Any process running on the VM—whether through OpenClaw's agent, a rogue HTTP server, a compromised dependency, or an attacker with SSH access—can make unlimited Anthropic (and OpenAI) API calls at your expense, all without ever possessing or viewing the actual API key.
